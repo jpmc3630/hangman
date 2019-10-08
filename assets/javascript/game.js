@@ -2,6 +2,7 @@
 let dictionary = ["potato", "turtle", "monkey", "thorough", "procrastinate", "bird"];
 let GuessedLetters = [];
 let Word = [];
+let GuessesRemaining = 10;
 
 //function to check input is a letter
 function allLetter(inputtxt) {
@@ -29,39 +30,33 @@ function NewGame() {
         let NewWordUC = NewWordStr.toUpperCase();
         // split string into array by character
         Word = NewWordUC.split("");
-        
+        // run printScreen function
         printScreen();
 };
 
 function Crosscheck (CurrentLetter) {
         if (GuessedLetters.includes(CurrentLetter)) {return true} else {return false};
-
 };
+
 
 function printScreen() {
     let Screen = document.getElementById("Game");
     let PrintedWord = [];
 
     for (i = 0; i < Word.length; i++) {
-
         if (Crosscheck(Word[i])) {
             PrintedWord.push(Word[i]);
-            
         } else {
             PrintedWord.push('_');
-            
         };
-
-        
-
     };
 
     Screen.innerHTML = 
     
     (
-        '<br>'
-         + '<br>' + GuessedLetters
-         + '<br>' + PrintedWord.join(" ")
+        '<br> Incorrect guesses remaining: ' + GuessesRemaining
+         + '<br> Incorrect letters guessed: ' + GuessedLetters
+         + '<br><br>' + PrintedWord.join(" ")
 
 
     
@@ -71,15 +66,23 @@ function printScreen() {
 
 
 document.onkeyup = function(event) {
-
     
     let userGuess = event.key;
     let userGuessUC = userGuess.toUpperCase();
     if (allLetter(userGuessUC)) {
-        
+        if (GuessedLetters.includes(userGuessUC)) {
+            // already been guessed - do nothing
+        } else {
+            
         GuessedLetters.push(userGuessUC);
+            
+
+        GuessesRemaining--;
+
         printScreen();
-    }
+
+        };
+    };
 
 };
 
