@@ -1,3 +1,108 @@
+// hangman parts
+let hangManParts = [
+    `
+  
+      
+      
+     
+      
+  
+  
+    `,
+    `
+  
+      
+      
+     
+      
+  _____
+  
+    `,
+    `
+  
+    |  
+    |  
+    | 
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  
+    |  
+    | 
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  
+    | 
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  O
+    | 
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  O
+    | -+
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  O
+    | -+-
+    |  
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  O
+    | -+-
+    |  /
+  __|__
+  
+    `,
+    `
+    ___
+    |  |
+    |  O
+    | -+-
+    |  /\\
+  __|__
+  
+    `,
+    `
+    ___      /
+    |  |   /
+    |  O /
+    |   /
+    | -+- 
+  __|__/\\
+  
+    `,
+  ];
+
+
+
 // generate dictionary
 let dictionary = ["potato", "turtle", "monkey", "thorough", "procrastinate", "bird"];
 let WonWords = [];
@@ -10,7 +115,7 @@ let GuessesRemaining = 10;
 
 //function to check input is a letter
 function allLetter(inputtxt) {
-        let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"];
+        let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
         if(letters.includes(inputtxt)){return true;} else {return false;};
 }
 
@@ -47,12 +152,14 @@ function NewGame() {
     
         // run printScreen function
         printScreen();
+        
+
 };
 
 
 
 function printScreen() {
-
+    let HangManScreen = document.getElementById("Hangman");
     let Screen = document.getElementById("Game");
     let WonWordsDiv = document.getElementById("WonWordsDiv");
     let PrintedWord = [];
@@ -87,12 +194,21 @@ function printScreen() {
     
     (
         '<br> Incorrect guesses remaining: ' + GuessesRemaining
-         + '<br> Incorrect letters guessed: ' + IncorrectGuesses
+         + '<br> Incorrect letters guessed: ' + IncorrectGuesses.join(" ")
          + '<br><br>' + PrintedWord.join(" ")
 
 
     
     );
+
+    // draw hangman state
+    // and add the line breaks properly trying to!
+    let HangManString = hangManParts[IncorrectGuesses.length];
+      
+    // let HangManStringFormatted = HangManString.replace(/(\r\n|\n|\r)/gm,"<br>");
+     HangManScreen.innerHTML = HangManString;
+    
+    
 };
 
 
