@@ -96,42 +96,46 @@ function printScreen() {
 };
 
 
-
+// detect KEYPRESS
 document.onkeyup = function(event) {
     
     let userGuess = event.key;
     let userGuessUC = userGuess.toUpperCase();
 
-    if (GameOver === false) {
+    if (GameOver === true) {
+        // If GAME IS OVER hit SPACE to restart
+        if (userGuess === " ") {
+            NewGame(); 
+        }
+    }  
+    else { 
+        // Game is still going
         // check letter is A-Z
         if (allLetter(userGuessUC)) {
             if (GuessedLetters.includes(userGuessUC)) {
-                // already been guessed - do nothing
+                // Has already been guessed - do nothing
+                GameStatus.innerHTML = "You already guessed " + userGuessUC;
             } 
             else 
             {
                 
             GuessedLetters.push(userGuessUC);
                 if (Word.includes(userGuessUC)) {
+                    GameStatus.innerHTML = userGuessUC + " is in the word!";
                     printScreen();
                 } 
                 else 
                 {
                     IncorrectGuesses.push(userGuessUC);
                     GuessesRemaining--;
+                    GameStatus.innerHTML = "The word does not contain " + userGuessUC;
                     printScreen();
                 }
 
 
             };
         };
-    } else {
 
-        // hit SPACE to restart
-        if (userGuess === " ") {
-            NewGame();
-            
-        }
     };
 };
 
