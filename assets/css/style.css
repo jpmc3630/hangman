@@ -1,22 +1,24 @@
 .container {
 
-    margin: auto;
+    margin: 12% auto 0px auto;
     width: 500px;
-    height: 300px;
+    padding: 0px 15px 0px 0px;
+    
     background-color: white;
 }
 
 header {
    
-    margin: auto;
     padding: 0px 0px 0px 15px;
     background-color: lightgrey;
-   
-
 }
 
-.spacer {
-    height: 50px;
+pre {
+    margin: 0px 0px 0px 0px;
+}
+
+.titlepre {
+    margin: 0px 0px 0px 10px;
 }
 
 #Game {
@@ -29,20 +31,18 @@ header {
 }
 
 #Hangman {
-    width: 35%;
+   
     height: 150px;
-    float: right;
     background-color: lightblue;
 }
 
 #GameStatus {
     background-color: lightcoral;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 10px;
 }
 
 .wonwordscontainer {
     background-color: lightgoldenrodyellow;
-    float: left;
     width: 100%;
     
 }
@@ -52,7 +52,7 @@ header {
     background-color: lightgoldenrodyellow;
     float: left;
     width: 100%;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 125px;
 }
 
 .clearfix::after {

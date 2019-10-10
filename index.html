@@ -8,26 +8,29 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="./assets/javascript/game.js"></script>
 
 
-
 </head>
 <body>
-<div class="spacer"></div>
+        <div id="musicControls" class="text-center">
+                <button class="btn btn-warning btn-xs theme-button">
+                  <span class="fa fa-music"></span> Play Theme!</button>
+                <button class="btn btn-dark btn-xs pause-button">
+                  <span class="fa fa-pause"></span> Pause Song</button>
+              </div>
+
 <div class="container">
-        <header>Electronic Music Genre Hangman</header>
+    <pre class="titlepre">Dance Music Hangman</pre>
     <pre id="Game"></pre>
     <pre id="Hangman"></pre>
-
-    <div id="GameStatus"></div>
-    
+    <pre id="GameStatus"></pre>
     <div class="wonwordscontainer">
-        
-        <div pre="WonWordsDiv"></pre>
+        <pre id="WonWordsDiv">You have mastered 0 genres</pre>
     </div>
 
 

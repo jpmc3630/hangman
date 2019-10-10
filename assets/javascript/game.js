@@ -104,9 +104,7 @@ let hangManParts = [
 
 
 // generate dictionary
-// let dictionary = ["techno", "drum and bass", "house", "tech house", "hiphop", "dubstep", "psytrance", "trance"];
-
-let dictionary = ["tech house", "drum and bass"];
+let dictionary = ["techno", "drum and bass", "house", "tech house", "hip hop", "dubstep", "psytrance", "trance"];
 
 
 let WonWords = [];
@@ -154,8 +152,12 @@ function NewGame() {
         // set status text
         GameStatus.innerHTML = "Guess any letter A-Z"; 
     
+        // play mp3
+
+
         // run printScreen function
         printScreen();
+
         
 
 };
@@ -169,10 +171,10 @@ function printScreen() {
     let PrintedWord = [];
 
     // generate current state of word for screen
-    for (i = 0; i < Word.length; i++) {
+    for (i = 0; i < (Word.length); i++) {
         if (GuessedLetters.includes(Word[i]) || (Word[i]==" ")) {
             PrintedWord.push(Word[i]); // if it matches print it
-            console.log(PrintedWord)
+            
         } else {
             PrintedWord.push('_'); // if it doesn't match print an underscore
         };
@@ -188,8 +190,8 @@ function printScreen() {
         
         WonWords.push(PrintedWord.join(" "));
         let WordText = "";
-        if (WonWords.length === 1) {WordText = "word";} else {WordText = "words";};
-        WonWordsDiv.innerHTML = "You have guessed " + WonWords.length + " " + WordText + " correctly: <br>" + WonWords.join("<br>");
+        if (WonWords.length === 1) {WordText = "genre";} else {WordText = "genres";};
+        WonWordsDiv.innerHTML = "You have mastered " + WonWords.length + " " + WordText + "<br>" + WonWords.join("<br>");
         GameStatus.innerHTML = "You Win. Press SPACE for new game.";
         GameOver = true;
 
@@ -200,8 +202,8 @@ function printScreen() {
     Screen.innerHTML = 
     
     (
-        '<br> Incorrect guesses remaining: ' + GuessesRemaining
-         + '<br> Incorrect letters guessed:<br>' + IncorrectGuesses.join(" ")
+        '<br>Incorrect guesses remaining: ' + GuessesRemaining
+         + '<br>Incorrect letters guessed:<br>' + IncorrectGuesses.join(" ")
          + '<br><br>' + PrintedWord.join(" ")
 
 
@@ -219,9 +221,12 @@ function printScreen() {
 };
 
 
+
 // detect KEYPRESS
 document.onkeyup = function(event) {
     
+
+
     let userGuess = event.key;
     let userGuessUC = userGuess.toUpperCase();
 
@@ -267,4 +272,18 @@ window.onload = function() {
     GameOver=true;
     GameStatus.innerHTML = "Press SPACE to begin!";
 
+
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute("src", "./assets/audio/techno.mp3");
+  
+       // Theme Button
+       $(".theme-button").on("click", function() {
+        audioElement.play();
+      });
+      $(".pause-button").on("click", function() {
+        audioElement.pause();
+      });
+
   };
+
+
