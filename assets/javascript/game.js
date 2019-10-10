@@ -182,7 +182,9 @@ function printScreen() {
     } else {
         
         WonWords.push(PrintedWord.join(" "));
-        WonWordsDiv.innerHTML = WonWords.join("<br>");
+        let WordText = "";
+        if (WonWords.length === 1) {WordText = "word";} else {WordText = "words";};
+        WonWordsDiv.innerHTML = "You have guessed " + WonWords.length + " " + WordText + " correctly: <br>" + WonWords.join("<br>");
         GameStatus.innerHTML = "You Win. Press SPACE for new game.";
         GameOver = true;
 
@@ -194,7 +196,7 @@ function printScreen() {
     
     (
         '<br> Incorrect guesses remaining: ' + GuessesRemaining
-         + '<br> Incorrect letters guessed: ' + IncorrectGuesses.join(" ")
+         + '<br> Incorrect letters guessed:<br>' + IncorrectGuesses.join(" ")
          + '<br><br>' + PrintedWord.join(" ")
 
 

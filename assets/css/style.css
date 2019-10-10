@@ -3,7 +3,7 @@
     margin: auto;
     width: 500px;
     height: 300px;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 /* div {
@@ -14,13 +14,13 @@
 
     background-color: lightgreen;
     float: left;
-    height: 120px;
-    width: 60%;
+    height: 150px;
+    width: 65%;
 }
 
 #Hangman {
-    width: 40%;
-    height: 120px;
+    width: 35%;
+    height: 150px;
     float: right;
     background-color: lightblue;
 }
