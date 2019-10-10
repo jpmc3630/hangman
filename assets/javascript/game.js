@@ -104,7 +104,11 @@ let hangManParts = [
 
 
 // generate dictionary
-let dictionary = ["potato", "turtle", "monkey", "thorough", "procrastinate", "bird"];
+// let dictionary = ["techno", "drum and bass", "house", "tech house", "hiphop", "dubstep", "psytrance", "trance"];
+
+let dictionary = ["tech house", "drum and bass"];
+
+
 let WonWords = [];
 let GameOver = false;
 
@@ -166,10 +170,11 @@ function printScreen() {
 
     // generate current state of word for screen
     for (i = 0; i < Word.length; i++) {
-        if (GuessedLetters.includes(Word[i])) {
-            PrintedWord.push(Word[i]);
+        if (GuessedLetters.includes(Word[i]) || (Word[i]==" ")) {
+            PrintedWord.push(Word[i]); // if it matches print it
+            console.log(PrintedWord)
         } else {
-            PrintedWord.push('_');
+            PrintedWord.push('_'); // if it doesn't match print an underscore
         };
     };
 
