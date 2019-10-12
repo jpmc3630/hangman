@@ -275,15 +275,23 @@ window.onload = function() {
 
     var audioElement = document.createElement("audio");
     audioElement.setAttribute("src", "./assets/audio/techno.mp3");
-  
-       // Theme Button
-       $(".theme-button").on("click", function() {
-        audioElement.play();
-      });
-      $(".pause-button").on("click", function() {
-        audioElement.pause();
-      });
+    
+    document.getElementById("unmute-button").addEventListener("click", unMute);
 
+var muted = true;
+function unMute() {
+  if (muted) {
+    audioElement.play();
+    muted = false;
+    document.getElementById("unmute-button").classList.remove("btn-danger");
+    document.getElementById("unmute-button").classList.add("btn-default");  
+    
+  } else {audioElement.pause();
+      muted = true;
+      document.getElementById("unmute-button").classList.remove("btn-default");
+      document.getElementById("unmute-button").classList.add("btn-danger");  
+      
   };
 
-
+  };
+};

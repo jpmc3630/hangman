@@ -8,8 +8,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="./assets/javascript/game.js"></script>
@@ -17,14 +15,14 @@
 
 </head>
 <body>
+
         <div id="musicControls" class="text-center">
-                <button class="btn btn-warning btn-xs theme-button">
-                  <span class="fa fa-music"></span> Play Theme!</button>
-                <button class="btn btn-dark btn-xs pause-button">
-                  <span class="fa fa-pause"></span> Pause Song</button>
+                <button id="unmute-button" class="btn btn-danger btn-xs">
+                  <span class="fa fa-music"></span> Unmute Audio Clues</button>
               </div>
 
 <div class="container">
+
     <pre class="titlepre">Dance Music Hangman</pre>
     <pre id="Game"></pre>
     <pre id="Hangman"></pre>
