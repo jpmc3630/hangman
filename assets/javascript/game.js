@@ -270,11 +270,11 @@ document.onkeyup = function(event) {
 window.onload = function() {
 
     GameOver=true;
-    GameStatus.innerHTML = "Press SPACE to begin!";
+    GameStatus.innerHTML = "Guess the GENRE - Press SPACE to begin!";
 
 
     var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "./assets/audio/techno.mp3");
+    audioElement.setAttribute("src", "https://music.ishkur.com/music/Detroit%20Techno%20-%20(1993)%20Sebastian%20S.%20-%20Etheral.mp3");
     
     document.getElementById("unmute-button").addEventListener("click", unMute);
 
@@ -285,13 +285,10 @@ function unMute() {
     muted = false;
     document.getElementById("unmute-button").classList.remove("btn-danger");
     document.getElementById("unmute-button").classList.add("btn-default");  
-    
   } else {audioElement.pause();
       muted = true;
       document.getElementById("unmute-button").classList.remove("btn-default");
       document.getElementById("unmute-button").classList.add("btn-danger");  
-      
-  };
+  };};
 
-  };
 };
