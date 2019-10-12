@@ -104,9 +104,19 @@ let hangManParts = [
 
 
 // generate dictionary
-let dictionary = ["techno", "drum and bass", "house", "tech house", "hip hop", "dubstep", "psytrance", "trance"];
-
-
+let dictionary = ["techno", "drum and bass", "house", "hip hop", "dubstep", "psytrance", "trance"];
+var currentSongURL = "https://music.ishkur.com/music/Detroit%20Techno%20-%20(1993)%20Sebastian%20S.%20-%20Etheral.mp3";
+var songURLs = [
+  "https://music.ishkur.com/music/Detroit%20Techno%20-%20(1993)%20Sebastian%20S.%20-%20Etheral.mp3",
+"https://music.ishkur.com/music/Pendulum%20-%20(2009)%20Shock%20One%20-%20Polygon.mp3",
+"https://music.ishkur.com/music/Chicago%20House%20-%20(1987)%20The%20Children%20-%20Freedom%20(Factory%20mix).mp3",
+"https://music.ishkur.com/music/Conscious%20Rap%20-%20(2005)%20GZA%20&%20Ras%20Kass%20-%20Lyrical%20Swords.mp3",
+"https://music.ishkur.com/music/Dubstep%20-%20(2011)%20J-Kenzo%20-%20The%20Roteks.mp3",
+"https://music.ishkur.com/music/Full%20On%20-%20(2006)%20Mahamudra%20vs%20Dan%20Label%20-%20Electro%20Something.mp3",
+"https://music.ishkur.com/music/Trance%20-%20(1990)%20Liaisons%20D.%20-%20He%20Chilled%20Out.mp3"]
+   
+var audioElement = document.createElement("audio");
+var muted = true;
 let WonWords = [];
 let GameOver = false;
 
@@ -129,9 +139,17 @@ function NewWord() {
         // grab randomized word from dictionary
         let WordStr = dictionary[WordIndex];
         
+        // set currentSongURL
+        currentSongURL = songURLs[WordIndex];
+        
+                // update mp3 chosen
+                audioElement.pause();
+                audioElement.setAttribute("src", currentSongURL);
+                audioElement.play();
+
         // return new word as string
         return WordStr;
-
+        
     };
 
 function NewGame() {
@@ -152,7 +170,6 @@ function NewGame() {
         // set status text
         GameStatus.innerHTML = "Guess any letter A-Z"; 
     
-        // play mp3
 
 
         // run printScreen function
@@ -273,22 +290,28 @@ window.onload = function() {
     GameStatus.innerHTML = "Guess the GENRE - Press SPACE to begin!";
 
 
-    var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "https://music.ishkur.com/music/Detroit%20Techno%20-%20(1993)%20Sebastian%20S.%20-%20Etheral.mp3");
+
+    audioElement.setAttribute("src", currentSongURL);
     
     document.getElementById("unmute-button").addEventListener("click", unMute);
 
-var muted = true;
+
+ 
+
 function unMute() {
+  
+  
   if (muted) {
     audioElement.play();
     muted = false;
-    document.getElementById("unmute-button").classList.remove("btn-danger");
-    document.getElementById("unmute-button").classList.add("btn-default");  
+    document.getElementById("unmute-button").classList.remove("btn-default");
+    document.getElementById("unmute-button").classList.add("btn-danger");  
   } else {audioElement.pause();
       muted = true;
-      document.getElementById("unmute-button").classList.remove("btn-default");
-      document.getElementById("unmute-button").classList.add("btn-danger");  
+      document.getElementById("unmute-button").classList.remove("btn-danger");
+      document.getElementById("unmute-button").classList.add("btn-default");  
   };};
+
+
 
 };

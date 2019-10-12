@@ -1,3 +1,5 @@
+
+
 .container {
 
     margin: 12% auto 0px auto;
@@ -6,6 +8,12 @@
     
     background-color: white;
 }
+
+label {
+    float:right;
+    
+}
+
 
 header {
    
