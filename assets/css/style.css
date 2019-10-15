@@ -16,6 +16,7 @@
     padding: 20px;
     z-index: 1;
     background-color: lightgrey;
+    overflow-y: hidden;
 }
 
 label {
@@ -51,6 +52,7 @@ pre {
    
     height: 150px;
     background-color: lightblue;
+    overflow-y: hidden;
 }
 
 #GameStatus {
